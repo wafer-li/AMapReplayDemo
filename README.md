@@ -4,6 +4,7 @@
 
 ## 效果图
 
+![image](https://user-images.githubusercontent.com/12459199/62120995-4a9c4e00-b2f5-11e9-8df9-1628e816ed88.png)
 
 ## 使用
 
