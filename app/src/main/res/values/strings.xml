@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AMapReplayDemo</string>
+    <string name="start_replay">开始</string>
+    <string name="pause_replay">暂停</string>
+    <string name="resume_replay">继续</string>
+</resources>
