@@ -4,7 +4,7 @@
 
 ## 效果图
 
-![image](https://github.com/wafer-li/AMapReplayDemo/raw/master/ezgif.com-optimize.gif)
+![image](https://github.com/wafer-li/AMapReplayDemo/raw/master/SVID_20190730_174103_1.gif)
 
 ## 使用
 
