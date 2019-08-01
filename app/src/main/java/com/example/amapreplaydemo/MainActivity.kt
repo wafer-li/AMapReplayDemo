@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private var isRunning = false
     private val passedPoints = mutableListOf<LatLng>()
     private var passPolyline: Polyline? = null
+    private var passedPointIndex = 0
 
     @ImplicitReflectionSerializer
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         mapView.map.uiSettings.isTiltGesturesEnabled = false
         mapView.map.uiSettings.isRotateGesturesEnabled = false
         GlobalScope.launch(Dispatchers.Main) {
-            val points = loadPoints(Dispatchers.Main)
+            val points = loadPoints(Dispatchers.IO)
             buildLine(points)
             val marker = buildMarker()
             buildMovingPointOverlay(marker)
@@ -48,6 +49,10 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onDrawFrame(gl: GL10?) {
                     if (isRunning) {
+                        if (movingPointOverlay.index > passedPointIndex) {
+                            passedPointIndex = movingPointOverlay.index
+                            passedPoints.add(points[passedPointIndex])
+                        }
                         passedPoints.add(movingPointOverlay.position)
                         passPolyline?.remove()
                         passPolyline = mapView.map.addPolyline(
